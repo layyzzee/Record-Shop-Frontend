@@ -1,0 +1,17 @@
+﻿@using Record_Shop_Frontend.Client.Models
+
+<div class="record-summary">
+    <h2 class="album title">@album.Name</h2>
+    <ul class="album-info-list">
+        <li class="album-artist">@album.Artist</li>
+        <li class="album-releaseyear">@album.ReleaseYear</li>
+        <li class="album-genre">@album.Genre</li>
+        <li class="album-price">£@album.Price.ToString()</li>
+        <li class="album-stock">@album.Stock</li>
+    </ul>
+</div>
+
+@code {
+    [Parameter]
+    public Album album { get; set; }
+}
