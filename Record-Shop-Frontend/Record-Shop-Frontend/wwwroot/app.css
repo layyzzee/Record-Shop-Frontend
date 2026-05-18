@@ -1,9 +1,11 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #51eda5;
 }
 
+
 a, .btn-link {
-    color: #006bb7;
+    color: #eaf222;
 }
 
 .btn-primary {
@@ -50,6 +52,34 @@ h1:focus {
     border-color: #929292;
 }
 
+/*My Editing
+*/
+body {
+    background-image: url(https://www.free-stock-music.com/images/header-image-middle.webp);
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+}
+
+.layout-header {
+    text-align: center;
+}
+
+.layout-footer {
+    text-align: center;
+}
+
+.nav-link{
+    color: mediumspringgreen;
+}
+.nav-link:hover {
+    color: seagreen;
+}
+
+.nav-link:visited {
+    color: seagreen;
+}
+
 .record-summary {
     display: flex;
     flex-direction: row;
@@ -75,6 +105,7 @@ h1:focus {
     font-size: 2rem;
     flex: 0 0 250px;
     text-align: center;
+    color: white;
 }
 
 .album-info-list {
@@ -85,6 +116,7 @@ h1:focus {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: white;
 }
 
 .album-info-list li {
@@ -97,4 +129,7 @@ h1:focus {
     gap: 24px;
     padding: 20px 0;
     width: 100%;
+    max-width: 1700px;
+    justify-content: center;
+    margin: 0 auto;
 }
