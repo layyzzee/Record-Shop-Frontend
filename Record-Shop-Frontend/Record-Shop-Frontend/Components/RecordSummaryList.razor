@@ -1,0 +1,20 @@
+﻿@using Record_Shop_Frontend.Client.Models
+
+@if(albums == null || !albums.Any())
+{
+    <p class="no-albums">Sorry, it looks like our crates are empty!</p>
+}
+else
+{
+    <div class="album-present">
+        @foreach (var record in albums)
+        {
+            <RecordSummary album="record" />
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<Album> albums { get; set; }
+}
