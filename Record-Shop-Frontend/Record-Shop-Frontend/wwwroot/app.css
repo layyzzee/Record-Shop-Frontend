@@ -49,3 +49,52 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.record-summary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    max-width: 800px;
+    background-color: lightslategrey;
+    margin-bottom: 20px;
+}
+
+.album-cover {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.album-title {
+    margin: 0;
+    font-size: 2rem;
+    flex: 0 0 250px;
+    text-align: center;
+}
+
+.album-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.album-info-list li {
+    font-size: 1rem;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+    width: 100%;
+}

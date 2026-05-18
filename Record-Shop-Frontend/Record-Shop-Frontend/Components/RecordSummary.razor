@@ -1,13 +1,16 @@
 ﻿@using Record_Shop_Frontend.Client.Models
 
 <div class="record-summary">
-    <h2 class="album title">@album.Name</h2>
+
+    <img src="@(string.IsNullOrEmpty(album.ImageUrl) ? "https://f4.bcbits.com/img/0035511140_71.jpg" : album.ImageUrl)" alt="@album.Name cover art" class="album-cover" />
+
+    <h2 class="album-title">@album.Name</h2>
     <ul class="album-info-list">
-        <li class="album-artist">@album.Artist</li>
-        <li class="album-releaseyear">@album.ReleaseYear</li>
-        <li class="album-genre">@album.Genre</li>
-        <li class="album-price">£@album.Price.ToString()</li>
-        <li class="album-stock">@album.Stock</li>
+        <li class="album-artist"><strong>Artist:</strong> @album.Artist</li>
+        <li class="album-releaseyear"><strong>Release Year:</strong> @album.ReleaseYear</li>
+        <li class="album-genre"><strong>Genre: </strong> @album.Genre</li>
+        <li class="album-price"><strong>Price: </strong> £@album.Price.ToString()</li>
+        <li class="album-stock"><strong>Stock: </strong> @album.Stock.ToString()</li>
     </ul>
 </div>
 

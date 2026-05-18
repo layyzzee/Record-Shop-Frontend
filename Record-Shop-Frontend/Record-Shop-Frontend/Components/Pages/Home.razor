@@ -1,8 +1,28 @@
 ﻿@page "/"
 
+@using Record_Shop_Frontend.Client.Models
+@using Record_Shop_Frontend.Components
+
 <PageTitle>Kati's Chords</PageTitle>
 
 <h1 class="home-header">Welcome!</h1>
 
-<RecordSummary />
-<RecordSummaryList />
+<RecordSummaryList albums="MockRecordInventory" />
+
+@code {
+
+private List<Album> MockRecordInventory = new List<Album>
+{
+    new Album { AlbumId = 1, Name = "Vertigo", Artist = "EDEN", Genre = "Alt-Pop / Electronic", ReleaseYear = "2018", Price = 27.99, Stock = 19, ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBLkkV65doW6ao45-VhTg1iI-JasgAU7WHsQ&s" },
+    new Album { AlbumId = 2, Name = "The Search", Artist = "NF", Genre = "Hip Hop", ReleaseYear = "2019", Price = 31.50, Stock = 29, ImageUrl = "https://media.pitchfork.com/photos/5d4864ac04c06a00092f65da/master/pass/NF_TheSearch.jpg" },
+    new Album { AlbumId = 3, Name = "I Love You.", Artist = "The Neighbourhood", Genre = "Indie Rock", ReleaseYear = "2013", Price = 24.99, Stock = 45, ImageUrl = "https://m.media-amazon.com/images/I/611tBLNJpFL.jpg" },
+    new Album { AlbumId = 4, Name = "Perception", Artist = "NF", Genre = "Hip Hop", ReleaseYear = "2017", Price = 28.00, Stock = 37, ImageUrl = "https://m.media-amazon.com/images/I/713VZ3I1O-L._UF894,1000_QL80_.jpg" },
+    new Album { AlbumId = 5, Name = "No Future", Artist = "EDEN", Genre = "Alt-Pop / Electronic", ReleaseYear = "2020", Price = 26.50, Stock = 25, ImageUrl = "https://upload.wikimedia.org/wikipedia/en/9/9d/No_Future_Eden_Album_Cover.jpeg" },
+    new Album { AlbumId = 6, Name = "Dark", Artist = "EDEN", Genre = "Alt-Pop / Electronic", ReleaseYear = "2025", Price = 29.99, Stock = 14, ImageUrl = "https://i.scdn.co/image/ab67616d00001e024ff04da9f308677494e9b277" },
+    new Album { AlbumId = 7, Name = "End Credits", Artist = "EDEN", Genre = "Alt-Pop / Electronic", ReleaseYear = "2015", Price = 21.99, Stock = 8, ImageUrl = "https://i.scdn.co/image/ab67616d00001e02acafa9f0b34ae64e15bba69a" },
+    new Album { AlbumId = 8, Name = "I think you think too much of me", Artist = "EDEN", Genre = "Alt-Pop / Electronic", ReleaseYear = "2016", Price = 23.50, Stock = 12, ImageUrl = "https://i.scdn.co/image/ab67616d0000b273c61b46cf682d7f0183fcb87c" },
+    new Album { AlbumId = 9, Name = "Hope", Artist = "NF", Genre = "Hip Hop", ReleaseYear = "2023", Price = 32.00, Stock = 22, ImageUrl = "https://i.scdn.co/image/ab67616d0000b273ff8a4276b3be31c839557439" },
+    new Album { AlbumId = 10, Name = "Mansion", Artist = "NF", Genre = "Hip Hop", ReleaseYear = "2015", Price = 25.00, Stock = 17, ImageUrl = "https://upload.wikimedia.org/wikipedia/en/4/42/Mansion_by_NF.png" }
+};
+
+};

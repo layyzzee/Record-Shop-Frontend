@@ -17,5 +17,6 @@ namespace Record_Shop_Frontend.Client.Models
         public double? Price { get; set; }
         [Required(ErrorMessage = "Stock Is required")]
         public int? Stock { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
