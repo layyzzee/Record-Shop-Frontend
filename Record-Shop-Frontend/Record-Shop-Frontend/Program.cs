@@ -1,4 +1,4 @@
-using Record_Shop_Frontend.Client.Pages;
+//using Record_Shop_Frontend.Client.Pages;
 using Record_Shop_Frontend.Components;
 
 namespace Record_Shop_Frontend
