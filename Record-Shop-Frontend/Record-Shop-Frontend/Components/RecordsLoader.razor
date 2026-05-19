@@ -1,5 +1,49 @@
-﻿<h3>RecordsLoader</h3>
+﻿@using Record_Shop_Frontend.Client.Models
+@using System.Net.Http.Json
+
+@if (isLoading)
+{
+	<div class="albums-loading">
+		Loading...
+	</div>
+}
+else if (!string.IsNullOrEmpty(ErrorMessage))
+{
+	<div class="database-fetch-error">
+		@ErrorMessage
+	</div>
+}
+else if	(AlbumList != null)
+{
+	<div class="albums-present">
+		<RecordSummaryList albums="AlbumList" />
+	</div>
+}
+
 
 @code {
-
+	private List<Album>? AlbumList { get; set; }
+	private string ErrorMessage { get; set; }
+	private bool isLoading = true;
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			using var httpclient = new HttpClient();
+			httpclient.BaseAddress = new Uri("https://localhost:7121/");
+			AlbumList = await httpclient.GetFromJsonAsync<List<Album>>("/Album");
+		}
+		catch (HttpRequestException http)
+		{
+			ErrorMessage = $"Connection issue: {http.Message}.";
+		}
+		catch (Exception ex)
+		{
+			ErrorMessage = $"Unexpecter error: {ex.Message}.";
+		}
+		finally
+		{
+			isLoading = false;
+		}
+	}
 }

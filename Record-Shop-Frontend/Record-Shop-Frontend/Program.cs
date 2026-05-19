@@ -14,6 +14,8 @@ namespace Record_Shop_Frontend
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
 
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:7121/") });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
