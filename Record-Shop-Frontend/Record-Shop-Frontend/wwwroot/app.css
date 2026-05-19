@@ -1,6 +1,6 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #51eda5;
+    color: turquoise;
 }
 
 
@@ -52,8 +52,7 @@ h1:focus {
     border-color: #929292;
 }
 
-/*My Editing
-*/
+/*My Editing*/
 body {
     background-image: url(https://www.free-stock-music.com/images/header-image-middle.webp);
     background-size: cover;
@@ -62,25 +61,43 @@ body {
 }
 
 .layout-header {
+    background-color: #353535;
     text-align: center;
+    border: solid 1px black;
+    height: auto;
+    color: white;
 }
 
 .layout-footer {
+    background-color: #353535;
     text-align: center;
+    border: solid 1px black;
+    height: auto;
+    color: white;
+}
+
+.nav-page {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    text-align: left;
+    border: solid 1px black;
+    height: auto;
 }
 
 .nav-link{
-    color: mediumspringgreen;
+    color: turquoise;
 }
 .nav-link:hover {
-    color: seagreen;
+    color: darkturquoise;
 }
 
 .nav-link:visited {
-    color: seagreen;
+    color: darkturquoise;
 }
 
 .record-summary {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -89,8 +106,21 @@ body {
     border: 1px solid black;
     border-radius: 15px;
     max-width: 800px;
-    background-color: lightslategrey;
+    background-color: #414141;
     margin-bottom: 20px;
+    box-shadow: 0px 0px 250px black;
+}
+
+.line {
+    position: absolute;
+    background-color: turquoise;
+    box-shadow: 0px 0px 12px turquoise;
+    width: 4px;
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 5px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .album-cover {
