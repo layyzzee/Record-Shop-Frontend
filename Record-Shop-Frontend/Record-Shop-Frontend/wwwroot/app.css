@@ -62,10 +62,22 @@ body {
 
 .layout-header {
     background-color: #353535;
-    text-align: center;
     border: solid 1px black;
     height: auto;
     color: white;
+    display: flex;
+    align-items: center;
+}
+
+.header-image {
+    height: auto;
+    width: 100px;
+}
+
+.header-text{
+    text-align: center;
+    flex-grow: 1;
+    margin-right: 100px;
 }
 
 .layout-footer {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,6 +7,11 @@
     <RootNamespace>Record-Shop-Frontend</RootNamespace>
     <AssemblyName>$(AssemblyName.Replace(' ', '_'))</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\BW-Kati%27sChords.jpg" />
+    <None Include="wwwroot\Images\Colour-Kati%27sChords.jpg" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Record-Shop-Frontend.Client\Record-Shop-Frontend.Client.csproj" />
