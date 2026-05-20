@@ -1,41 +1,73 @@
 ﻿@using Record_Shop_Frontend.Client.Models
+@inject HttpClient httpClient
 
 <h3>RecordDetails</h3>
 
-<EditForm class="update-album-form">
-    <div class="form-album-name">
-        <label for="album-name">Album: </label>
-        <input class="album-name" type="text" />
-    </div>
-    <div class="form-album-name">
-        <label for="album-name">Album: </label>
-        <input id="album-name" class="album-name" type="text" />
-    </div>
-    <div class="form-artist">
-        <label for="artist">Artist: </label>
-        <input id="artist" class="artist" type="text" />
-    </div>
-    <div class="form-release-year">
-        <label for="release-year">Release Year: </label>
-        <input id="release-year" class="releaseyear" type="number" />
-    </div>
-    <div class="form-genre">
-        <label for="genre">Genre: </label>
-        <input id="genre" class="genre" type="text" />
-    </div>
-    <div class="form-price">
-        <label for="price">Price: £</label>
-        <input id="price" class="price" type="number" step="0.01" />
-    </div>
-    <div class="form-stock">
-        <label for="stock">Stock: </label>
-        <input id="stock" class="stock" type="number" />
-    </div>
-    <button>Save Changes</button>
-</EditForm>
+@if (album != null)
+{
+    <EditForm Model="album" OnValidSubmit="UpdateAlbum" class="update-album-form">
+        <div class="form-album-name">
+            <label for="album-name">Album: </label>
+            <InputText id="album-name" class="album-name" @bind-Value="album.Name" />
+        </div>
+        <div class="form-artist">
+            <label for="artist">Artist: </label>
+            <InputText id="artist" class="artist" @bind-Value="album.Artist" />
+        </div>
+        <div class="form-release-year">
+            <label for="release-year">Release Year: </label>
+            <InputText id="release-year" class="releaseyear" @bind-Value="album.ReleaseYear" />
+        </div>
+        <div class="form-genre">
+            <label for="genre">Genre: </label>
+            <InputText id="genre" class="genre" @bind-Value="album.Genre" />
+        </div>
+        <div class="form-price">
+            <label for="price">Price: £</label>
+            <InputNumber id="price" class="price" @bind-Value="album.Price" step="0.01" />
+        </div>
+        <div class="form-stock">
+            <label for="stock">Stock: </label>
+            <InputNumber id="stock" class="stock" @bind-Value="album.Stock" />
+        </div>
+        <button type="submit">Save Changes</button>
+    </EditForm>
+}
+else
+{
+    <p class="no-album-found">Album was not found</p>
+}
 
 
 @code {
     [Parameter]
-    public Album album { get; set; }
+    public Album? album { get; set; }
+
+    private string? statusMessage;
+
+    private async Task UpdateAlbum()
+    {
+        if(album == null)
+        {
+            statusMessage = "Error: no album found with that ID";
+            return;
+        }
+        try
+        {
+            var result = await httpClient.PutAsJsonAsync<Album>($"/Album/{album.AlbumId}", album);
+            if (result.IsSuccessStatusCode)
+            {
+                statusMessage = $"{album.Name} updated successfully in the database!";
+            }
+            else
+            {
+                statusMessage = $"Database failed to update: {result.ReasonPhrase}";
+            }
+        }
+        catch (Exception ex)
+        {
+            statusMessage = "Communitcation error";
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
+    }
 }

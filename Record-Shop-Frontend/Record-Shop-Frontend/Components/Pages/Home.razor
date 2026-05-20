@@ -1,4 +1,5 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 @using Record_Shop_Frontend.Client.Models
 @using Record_Shop_Frontend.Components
@@ -9,6 +10,7 @@
 
 @* <RecordSummaryList albums="MockRecordInventory" /> *@
 <RecordsLoader />
+@* <RecordDetails album="@MockRecordInventory[0]"/> *@
 
 @code {
 

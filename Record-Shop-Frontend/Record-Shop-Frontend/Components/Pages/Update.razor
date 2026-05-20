@@ -1,0 +1,47 @@
+﻿@page "/records/{AlbumId:int}/edit"
+@rendermode InteractiveServer
+@inject HttpClient httpClient
+
+@using Record_Shop_Frontend.Client.Models
+@using Record_Shop_Frontend.Components
+
+<PageTitle>Kati's Chords</PageTitle>
+
+@if (isLoading)
+{
+    <p>Loading...</p>
+}
+else if (selectedAlbum != null)
+{
+    <RecordDetails album="selectedAlbum" />
+}
+else
+{
+    <p>Album with ID @AlbumId could not be found.</p>
+}
+
+@code {
+    [Parameter]
+    public int AlbumId { get; set; }
+
+    private Album? selectedAlbum { get; set; }
+    private bool isLoading = true;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isLoading = true;
+        try
+        {
+            selectedAlbum = await httpClient.GetFromJsonAsync<Album>($"/Album/{AlbumId}");
+        }
+        catch (Exception ex)
+        {
+            selectedAlbum = null;
+            Console.WriteLine($"Error loading album from API: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

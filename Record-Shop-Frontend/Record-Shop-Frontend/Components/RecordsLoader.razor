@@ -1,5 +1,6 @@
 ﻿@using Record_Shop_Frontend.Client.Models
 @using System.Net.Http.Json
+@inject HttpClient httpClient
 
 @if (isLoading)
 {
@@ -29,9 +30,9 @@ else if	(AlbumList != null)
 	{
 		try
 		{
-			using var httpclient = new HttpClient();
-			httpclient.BaseAddress = new Uri("https://localhost:7121/");
-			AlbumList = await httpclient.GetFromJsonAsync<List<Album>>("/Album");
+			// using var httpclient = new HttpClient();
+			// httpclient.BaseAddress = new Uri("https:localhost:7121/");
+			AlbumList = await httpClient.GetFromJsonAsync<List<Album>>("/Album");
 		}
 		catch (HttpRequestException http)
 		{
