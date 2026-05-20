@@ -2,6 +2,37 @@
 
 <h3>RecordDetails</h3>
 
+<EditForm class="update-album-form">
+    <div class="form-album-name">
+        <label for="album-name">Album: </label>
+        <input class="album-name" type="text" />
+    </div>
+    <div class="form-album-name">
+        <label for="album-name">Album: </label>
+        <input id="album-name" class="album-name" type="text" />
+    </div>
+    <div class="form-artist">
+        <label for="artist">Artist: </label>
+        <input id="artist" class="artist" type="text" />
+    </div>
+    <div class="form-release-year">
+        <label for="release-year">Release Year: </label>
+        <input id="release-year" class="releaseyear" type="number" />
+    </div>
+    <div class="form-genre">
+        <label for="genre">Genre: </label>
+        <input id="genre" class="genre" type="text" />
+    </div>
+    <div class="form-price">
+        <label for="price">Price: £</label>
+        <input id="price" class="price" type="number" step="0.01" />
+    </div>
+    <div class="form-stock">
+        <label for="stock">Stock: </label>
+        <input id="stock" class="stock" type="number" />
+    </div>
+    <button>Save Changes</button>
+</EditForm>
 
 
 @code {
